@@ -1,29 +1,33 @@
 import type React from "react"
 
-const Pinpoint: React.FC<{ x: number; y: number }> = ({ x, y }) => (
-  <g>
-    <circle cx={x} cy={y} r="4" fill="#3b82f6" opacity="0.7">
-      <animate attributeName="r" values="4;5;4" dur="2s" repeatCount="indefinite" />
-    </circle>
-    <circle cx={x} cy={y} r="2" fill="#3b82f6" />
-  </g>
-)
+const Pinpoint: React.FC<{ x: number; y: number }> = ({ x, y }) => {
+  const randomSize = Math.random() * 4 + 6; // Random size between 6 and 10
+  return (
+    <g>
+      <circle cx={x} cy={y} r={randomSize} fill="#3b82f6" opacity="0.7" stroke="#fff" strokeWidth="1">
+        <animate attributeName="r" values={`${randomSize};${randomSize + 1};${randomSize}`} dur="2s" repeatCount="indefinite" />
+      </circle>
+      <circle cx={x} cy={y} r={randomSize / 2} fill="#3b82f6" stroke="#fff" strokeWidth="1" />
+    </g>
+  )
+}
 
 const WorldMap: React.FC = () => {
-  const pinpoints = [
-    { x: 180, y: 70 },  // North America
-    { x: 220, y: 110 }, // Central America
-    { x: 250, y: 200 }, // South America
-    { x: 470, y: 140 }, // Western Europe
-    { x: 520, y: 100 }, // Eastern Europe
-    { x: 550, y: 180 }, // Middle East
-    { x: 650, y: 220 }, // India
-    { x: 750, y: 180 }, // Southeast Asia
-    { x: 800, y: 250 }, // Australia
-    { x: 400, y: 230 }, // Central Africa
-    { x: 480, y: 300 }, // Southern Africa
-    { x: 820, y: 100 }, // East Asia (China/Japan)
-  ]
+   const pinpoints = [
+     { x: 150, y: 80 }, // North America
+     { x: 200, y: 120 }, // Central America
+     { x: 230, y: 220 }, // South America
+     { x: 450, y: 130 }, // Western Europe
+     { x: 500, y: 110 }, // Eastern Europe
+     { x: 540, y: 170 }, // Middle East
+     { x: 620, y: 230 }, // India
+     { x: 720, y: 190 }, // Southeast Asia
+     { x: 780, y: 280 }, // Australia
+     { x: 420, y: 250 }, // Central Africa
+     { x: 480, y: 320 }, // Southern Africa
+     { x: 760, y: 130 }, // East Asia (China/Japan)
+   ];
+
   return (
     <div className="relative w-full aspect-[2/1] bg-gray-100 rounded-lg overflow-hidden">
       <svg
