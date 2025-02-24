@@ -51,11 +51,15 @@ export default function FAQ() {
                 <ChevronDown className="h-5 w-5 text-gray-500" />
               )}
             </button>
-            {openIndex === index && (
-              <div className="p-4 bg-gray-50 slide-down">
+            <div
+              className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                openIndex === index ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+              }`}
+            >
+              <div className="p-4 bg-gray-50">
                 <p className="text-gray-700">{faq.answer}</p>
               </div>
-            )}
+            </div>
           </div>
         ))}
       </div>

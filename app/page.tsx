@@ -29,7 +29,7 @@ export default function Home() {
         <FAQ />
       </main>
       <footer className="bg-gray-100 py-8 text-center">
-        <p className="text-gray-600">&copy; 2023 Shabbek. All rights reserved.</p>
+        <p className="text-gray-600">&copy; 2025 Shabbek. All rights reserved.</p>
       </footer>
     </>
   )

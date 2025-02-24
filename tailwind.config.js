@@ -10,6 +10,15 @@ module.exports = {
     "app/**/*.{ts,tsx}",
     "components/**/*.{ts,tsx}",
   ],
+  // Safelist the dynamic classes so they're always included in the build
+  safelist: [
+    "bg-shabbek-blue-500",
+    "bg-shabbek-accent-green",
+    "bg-shabbek-accent-purple",
+    "text-shabbek-blue-500",
+    "text-shabbek-accent-green",
+    "text-shabbek-accent-purple",
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -76,5 +85,5 @@ module.exports = {
     },
   },
   plugins: [require("@tailwindcss/forms"), require("tailwindcss-animate")],
-}
+};
 
